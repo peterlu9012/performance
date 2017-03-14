@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.6" jmeter="2.11 r1554548">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="PeriodId" elementType="Argument">
+            <stringProp name="Argument.name">PeriodId</stringProp>
+            <stringProp name="Argument.value">201411</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="TotalCount" elementType="Argument">
+            <stringProp name="Argument.name">TotalCount</stringProp>
+            <stringProp name="Argument.value">999</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="PageSize" elementType="Argument">
+            <stringProp name="Argument.name">PageSize</stringProp>
+            <stringProp name="Argument.value">50</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Country" elementType="Argument">
+            <stringProp name="Argument.name">Country</stringProp>
+            <stringProp name="Argument.value">US</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration - STAGE" enabled="false">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">stageDB</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.16.15.229:1433;DatabaseName=RFOperations</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">perftest</stringProp>
+        <stringProp name="poolMax">1500</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">perftest</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration - Perf Prod RFO" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">stageDB</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://10.178.12.109:1433;DatabaseName=Commissions</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">Ow&gt;P@iSA</stringProp>
+        <stringProp name="poolMax">1500</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">jMeterPerf</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration - Hybrisdb" enabled="false">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">stageDB</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.16.15.13:1432;DatabaseName=Hybris</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">M9XTEbLFh</stringProp>
+        <stringProp name="poolMax">1500</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">HybrisSTG3Admin</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="filename">C:\PEG\JMeter Scripts\Pulse\TST1_AccountId.csv</stringProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames">AccountId</stringProp>
+        <stringProp name="TestPlan.comments">C:\RF\tests\JMX\Pulse\TST1_AccountId.csv</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <name></name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <name></name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="DB Thread Group - Pulse Procs" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(Users,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(Rampup,10)}</stringProp>
+        <longProp name="ThreadGroup.start_time">1417026856000</longProp>
+        <longProp name="ThreadGroup.end_time">1417026856000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(Duration,60)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Vital Signs" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptVitalSigns @PeriodId=${PeriodId}, @CountryList=&apos;US&apos;, @AccountId=${AccountId}, @StatesList=&apos;${Country}&apos;, @totalCount= ${TotalCount}
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Orders Tab" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">DECLARE @p14 INT
+EXEC [pulse].[rptOrderHistory] @AccountID=${AccountId},  @PeriodID=${PeriodId}, @Name=NULL, @OrderType=NULL, @CountryCode=N&apos;${Country}&apos;, @DateFrom=NULL, @DateTo=NULL, @SVFrom=NULL, @SVTo=NULL, @PSQVFrom=NULL, @PSQVTo=NULL, @Page=1, @PageSize=${PageSize}, @SortByField=N&apos;CommissionDate&apos;, @SortByDirection=1,  @TotalCount=@p14 output;
+
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Autoship PC" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptAutoshipPC @CountryList= &apos;${Country}&apos;, @AccountId= ${AccountId}, @PeriodId = ${PeriodId}, @totalCount = ${TotalCount}
+
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Autoship CRP" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptAutoshipCRP @CountryList= &apos;${Country}&apos;, @AccountId= ${AccountId}, @PeriodId = ${PeriodId}, @totalCount = ${TotalCount}
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RFX EC" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptRfxECs @PeriodId=${PeriodId}, @CountryList= &apos;${Country}&apos;, @AccountId= ${AccountId}, @totalCount = ${TotalCount}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Promotions" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptPromotions @AccountId= ${AccountId}, @CountryCode= &apos;${Country}&apos;, @totalcount = ${TotalCount}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="PC Cencellations" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptCancellationsPC @AccountId= ${AccountId}, @CountryList= &apos;${Country}&apos;, @PeriodId = ${PeriodId}, @TotalCount = ${TotalCount}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Fast Start" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptFastStartTeamAdvancement @AccountId= ${AccountId}, @CountryCode= &apos;${Country}&apos;, @Page=1, @PageSize=${PageSize}, @SortByField=N&apos;LastName&apos;, @SortByDirection=0, @totalcount = ${TotalCount}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Flat Performance Lineage" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.uspFlatPerformanceLineage @SponsorID=${AccountId}, @ShowPC=0, @ShowNonEC=1</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RFx Current Performance" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">EXEC pulse.rptRFxCurrentPerformance @CountryList= &apos;${Country}&apos;, @AccountId= ${AccountId}, @totalCount = ${TotalCount}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout">300</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String srand;
+int len;
+String AB = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;;
+String SSN = &quot;1234567890&quot;;
+String A = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+static Random rnd = new Random();
+
+// Useremail
+len=8;
+StringBuilder sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;useremail&quot;, srand+&quot;@mailanatorjmt.com&quot;);
+
+ // SSN
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+
+ vars.put(&quot;ssn&quot;, srand);
+
+ // First name
+len=12;
+StringBuilder first = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ first.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_fname&quot;, first.toString());
+ //log.info(&quot;First Name: &quot; + vars.get(&quot;enrl_fname&quot;));
+
+// Last name
+ StringBuilder last = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ last.append( A.charAt( rnd.nextInt(A.length()) ) );
+ 
+ vars.put(&quot;enrl_lname&quot;, last.toString());
+ //log.info(&quot;Last Name: &quot; + vars.get(&quot;enrl_lname&quot;));
+
+ //Enroll first-last name combo for PWS suffix
+ fname = vars.get(&quot;enrl_fname&quot;);
+ lname = vars.get(&quot;enrl_lname&quot;);
+ //log.info(&quot;FName: &quot; + fname + &quot; LName: &quot; + lname);
+ flname = fname.charAt(0) + lname;
+ vars.put(&quot;pwsprefix&quot;, flname);
+
+ // Sponsor
+ if(vars.get(&quot;sponsorname&quot;)==null) {
+ 	vars.put(&quot;sponsorname&quot;, &quot;jane doe&quot;);
+ 	//vars.put(&quot;sponsor&quot;,&quot;Random+Namefortesting&quot;);
+ }
+//siteid
+ len=9;
+ sb = new StringBuilder( len );
+for( int i = 0; i &lt; len; i++ ) 
+ sb.append( SSN.charAt( rnd.nextInt(SSN.length()) ) );
+ srand = sb.toString();
+ vars.put(&quot;siteId&quot;, srand);
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">String dbout = vars.get(&quot;dbsampleroutput&quot;);
+f = new FileWriter(dbout, true);
+f.write(prev.getSampleLabel() + &quot;,&quot; + String.valueOf(prev.getLatency()) + &quot;,&quot; + String.valueOf(prev.getTime()) + &quot;,&quot; + String.valueOf(prev.getTime()-prev.getLatency())+&quot;\n&quot;);
+f.flush();
+f.close();
+
+//modifying code to keep horizontal tree
+ArrayList result = vars.getObject(&quot;results&quot;);
+for (HashMap table : result) {
+    for (Object column : table.keySet()) {
+        log.info(column + &quot;=&quot; + table.get(column));
+        if(new String(column).compareTo(new String(&quot;AccountID&quot;)) == 0) {
+        	vars.put(&quot;SponsorId&quot;,  Long.toString(table.get(column)));
+        	break;
+        }
+    }
+}
+
+log.info(&quot;**** SponsorId set to: **** &quot; + vars.get(&quot;SponsorId&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-934123542">Output variables by position</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.6" jmeter="2.11 r1554548">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="dbsampleroutput" elementType="Argument">
+            <stringProp name="Argument.name">dbsampleroutput</stringProp>
+            <stringProp name="Argument.value">C:\Data\Jmeter_Scripts\data\db-enrollment-responsetimes.csv</stringProp>
+            <stringProp name="Argument.desc">db tests sampler output</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="enrollmentinfo" elementType="Argument">
+            <stringProp name="Argument.name">enrollmentinfo</stringProp>
+            <stringProp name="Argument.value">C:\Data\Jmeter_Scripts\data\db-enrollment-data.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="userpwd" elementType="Argument">
+            <stringProp name="Argument.name">userpwd</stringProp>
+            <stringProp name="Argument.value">test1234</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ChangedByApplication" elementType="Argument">
+            <stringProp name="Argument.name">ChangedByApplication</stringProp>
+            <stringProp name="Argument.value">JMT</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ChangedByUser" elementType="Argument">
+            <stringProp name="Argument.name">ChangedByUser</stringProp>
+            <stringProp name="Argument.value">JMTTest</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="AddressLine1" elementType="Argument">
+            <stringProp name="Argument.name">AddressLine1</stringProp>
+            <stringProp name="Argument.value">200 Catherine St Ste 101</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="PostalCode" elementType="Argument">
+            <stringProp name="Argument.name">PostalCode</stringProp>
+            <stringProp name="Argument.value">K2P 2K9</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Region" elementType="Argument">
+            <stringProp name="Argument.name">Region</stringProp>
+            <stringProp name="Argument.value">ON</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Locale" elementType="Argument">
+            <stringProp name="Argument.name">Locale</stringProp>
+            <stringProp name="Argument.value">OTTAWA</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="culture" elementType="Argument">
+            <stringProp name="Argument.name">culture</stringProp>
+            <stringProp name="Argument.value">en-CA</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="AddressProfileName" elementType="Argument">
+            <stringProp name="Argument.name">AddressProfileName</stringProp>
+            <stringProp name="Argument.value">JMT-Test-Address</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CountryCode" elementType="Argument">
+            <stringProp name="Argument.name">CountryCode</stringProp>
+            <stringProp name="Argument.value">CA</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ProfileName" elementType="Argument">
+            <stringProp name="Argument.name">ProfileName</stringProp>
+            <stringProp name="Argument.value">JMT-Test-PaymentProfile</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CCNum" elementType="Argument">
+            <stringProp name="Argument.name">CCNum</stringProp>
+            <stringProp name="Argument.value">4111111111111111</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration - STAGE" enabled="false">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">stageDB</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.16.15.229:1441;databaseName=Hybris;responseBuffering=adaptive;loginTimeout=10</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">M9XTEbLFh</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">HybrisSTG3Admin</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration - PerfProd-Hybrisdb" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">stageDB</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://172.16.15.13:1432;DatabaseName=Hybris</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">yFew69Fp7</stringProp>
+        <stringProp name="poolMax">1500</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">HybrisPRDPRF</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration - PerfProd_virtualdb" enabled="false">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">stageDB</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://10.223.176.209:13337;DatabaseName=Hybris</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">yFew69Fp7</stringProp>
+        <stringProp name="poolMax">1500</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">HybrisPRDPRF</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <objProp>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="DB Thread Group - Enrollment Procs" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(Users,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(Rampup,200)}</stringProp>
+        <longProp name="ThreadGroup.start_time">1417026856000</longProp>
+        <longProp name="ThreadGroup.end_time">1417026856000</longProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(Duration,600)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Hybris1 - pprom.pk, pprom.prio " enabled="false">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT DISTINCT pprom.pk, pprom.prio 
+FROM ( SELECT  item_t0.PK  as pk,   item_t0.p_priority  as prio FROM promotion item_t0 JOIN prodpromrelations item_t1 ON  item_t0.PK  =  item_t1.TargetPK  
+AND  item_t1.SourcePK  in (8796159442945) WHERE ( item_t0.p_promotiongroup  IN (8796093059993) AND  item_t0.p_enabled  =1 
+AND   item_t0.p_startdate  &lt;= &apos;2015-09-15 15:37:04.112&apos; AND  &apos;2015-09-15 15:37:04.112&apos; &lt;=  item_t0.p_enddate ) 
+AND ((item_t0.TypePkString IN  (8796111175762,8796111274066,8796111110226,8796111208530,8796111339602,8796111142994,8796111372370,8796111306834,8796127101010,8796111241298,8796127035474,8796122644562,8796164915282)  AND item_t1.TypePkString=8796111601746 )) 
+UNION  SELECT  item_t2.PK  as pk,   item_t2.p_priority  as prio FROM promotion item_t2 JOIN catpromrelations item_t3 ON  item_t2.PK  =  item_t3.TargetPK  AND  item_t3.SourcePK  IN (8796098396302,8796098068622,8796098101390) 
+WHERE ( item_t2.p_promotiongroup  IN (8796093059993) AND  item_t2.p_enabled  =1 AND   item_t2.p_startdate  &lt;= &apos;2015-09-15 15:37:04.112&apos; AND  &apos;2015-09-15 15:37:04.112&apos; &lt;=  item_t2.p_enddate ) 
+AND ((item_t2.TypePkString IN  (8796111175762,8796111274066,8796111110226,8796111208530,8796111339602,8796111142994,8796111372370,8796111306834,8796127101010,8796111241298,8796127035474,8796122644562,8796164915282)  AND item_t3.TypePkString=8796111634514 )) 
+UNION ALL SELECT  item_t4.PK ,  item_t4.p_priority  as prio FROM promotion item_t4 WHERE ( item_t4.p_promotiongroup  IN (8796093059993) AND  item_t4.p_enabled  =1 AND   item_t4.p_startdate  &lt;= &apos;2015-09-15 15:37:04.112&apos; AND  &apos;2015-09-15 15:37:04.112&apos; &lt;=  item_t4.p_enddate ) 
+AND (item_t4.TypePkString IN  (8796111536210,8796111437906,8796111470674,8796111503442,8796111405138) )  )pprom order by pprom.prio DESC 
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Hybris2" enabled="false">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT DISTINCT pprom.pk, pprom.prio FROM ( SELECT  item_t0.PK  as pk,   item_t0.p_priority  as prio FROM promotion item_t0 JOIN prodpromrelations item_t1 ON  item_t0.PK  =  item_t1.TargetPK  AND  item_t1.SourcePK  in (8796159442945) WHERE ( item_t0.p_promotiongroup  IN (8796093059993) AND  item_t0.p_enabled  =1 AND   item_t0.p_startdate  &lt;= &apos;2015-09-15 15:37:04.112&apos; AND  &apos;2015-09-15 15:37:04.112&apos; &lt;=  item_t0.p_enddate ) AND ((item_t0.TypePkString IN  (8796111175762,8796111274066,8796111110226,8796111208530,8796111339602,8796111142994,8796111372370,8796111306834,8796127101010,8796111241298,8796127035474,8796122644562,8796164915282)  AND item_t1.TypePkString=8796111601746 )) UNION  SELECT  item_t2.PK  as pk,   item_t2.p_priority  as prio FROM promotion item_t2 JOIN catpromrelations item_t3 ON  item_t2.PK  =  item_t3.TargetPK  AND  item_t3.SourcePK  IN (8796098396302,8796098068622,8796098101390) WHERE ( item_t2.p_promotiongroup  IN (8796093059993) AND  item_t2.p_enabled  =1 AND   item_t2.p_startdate  &lt;= &apos;2015-09-15 15:37:04.112&apos; AND  &apos;2015-09-15 15:37:04.112&apos; &lt;=  item_t2.p_enddate ) AND ((item_t2.TypePkString IN  (8796111175762,8796111274066,8796111110226,8796111208530,8796111339602,8796111142994,8796111372370,8796111306834,8796127101010,8796111241298,8796127035474,8796122644562,8796164915282)  AND item_t3.TypePkString=8796111634514 )) UNION ALL SELECT  item_t4.PK ,  item_t4.p_priority  as prio FROM promotion item_t4 WHERE ( item_t4.p_promotiongroup  IN (8796093059993) AND  item_t4.p_enabled  =1 AND   item_t4.p_startdate  &lt;= &apos;2015-09-15 15:37:04.112&apos; AND  &apos;2015-09-15 15:37:04.112&apos; &lt;=  item_t4.p_enddate ) AND (item_t4.TypePkString IN  (8796111536210,8796111437906,8796111470674,8796111503442,8796111405138) )  )pprom order by pprom.prio DESC </stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Hybris3" enabled="false">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT x.PK FROM (SELECT  item_t0.PK  FROM discountrows item_t0 WHERE ( item_t0.p_productmatchqualifier  in (0, 8796159442945)) AND (item_t0.TypePkString=8796101148754 AND ((   item_t0.p_product  IS NOT NULL OR item_t0.p_catalogversion  IS NULL OR  item_t0.p_catalogversion  IN (8796093612633,8796093219417,8796093743705) ))) UNION SELECT  item_t1.PK  FROM discountrows item_t1 WHERE ( item_t1.p_productmatchqualifier =-1 and  item_t1.p_productid =&apos;AARG001-01_1003&apos;) AND (item_t1.TypePkString=8796101148754 AND ((   item_t1.p_product  IS NOT NULL OR item_t1.p_catalogversion  IS NULL OR  item_t1.p_catalogversion  IN (8796093612633,8796093219417,8796093743705)))))x
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Hybris4" enabled="false">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT x.PK FROM (SELECT  item_t0.PK  FROM pricerows item_t0 WHERE ( item_t0.p_productmatchqualifier  in (0, 8796159442945) and  item_t0.p_usermatchqualifier  in (0, 8796093087748, 8796164456539)) AND (item_t0.TypePkString IN  (8796123889746,8796101214290)  AND (((   item_t0.p_product  IS NOT NULL OR item_t0.p_catalogversion  IS NULL OR  item_t0.p_catalogversion  IN (8796093612633,8796093219417,8796093743705) ))) ) UNION SELECT  item_t1.PK  FROM pricerows item_t1 WHERE ( item_t1.p_productmatchqualifier =-1 and  item_t1.p_productid =&apos;AARG001-01_1003&apos; and  item_t1.p_usermatchqualifier  in (0, 8796093087748, 8796164456539)) AND (item_t1.TypePkString IN  (8796123889746,8796101214290)  AND (((   item_t1.p_product  IS NOT NULL OR item_t1.p_catalogversion  IS NULL OR  item_t1.p_catalogversion  IN (8796093612633,8796093219417,8796093743705) ))) ))x</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Hybris5" enabled="false">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">SELECT  item_t0.PK  FROM users item_t0 WHERE ((  item_t0.UniqueID  = &apos;S5ALXT16@mailanator.com&apos; OR  item_t0.p_customerusername  = &apos;S5ALXT16@mailanator.com&apos; ) AND  item_t0.p_accountstatus  IN ( ${__Random(1,1000,)},${__Random(1,0100,)} )) AND (item_t0.TypePkString=${__Random(1,1000,)} ) order by  item_t0.createdTS  DESC </stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="isInitialized" enabled="true">
+          <stringProp name="dataSource">stageDB</stringProp>
+          <stringProp name="query">SELECT isInitialized FROM metainformations WHERE PK = 15481123719086096</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

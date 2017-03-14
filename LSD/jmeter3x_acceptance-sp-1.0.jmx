@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="STG2UAT Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="db_ip" elementType="Argument">
+            <stringProp name="Argument.name">db_ip</stringProp>
+            <stringProp name="Argument.value">172.16.15.106:1433</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="commissionDbName" elementType="Argument">
+            <stringProp name="Argument.name">commissionDbName</stringProp>
+            <stringProp name="Argument.value">Commissions_Pulse</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="STG1 Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="db_ip" elementType="Argument">
+            <stringProp name="Argument.name">db_ip</stringProp>
+            <stringProp name="Argument.value">172.16.15.210:1433</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="commissionDbName" elementType="Argument">
+            <stringProp name="Argument.name">commissionDbName</stringProp>
+            <stringProp name="Argument.value">Commissions</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="STG2 Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="db_ip" elementType="Argument">
+            <stringProp name="Argument.name">db_ip</stringProp>
+            <stringProp name="Argument.value">172.16.15.105:1433</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="commissionDbName" elementType="Argument">
+            <stringProp name="Argument.name">commissionDbName</stringProp>
+            <stringProp name="Argument.value">Commissions</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="RFOperations_perftest" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">RFOperations_db</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://${db_ip};DatabaseName=RFOperations</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">perftest</stringProp>
+        <stringProp name="poolMax">1500</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">perftest</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Commissions_perftest" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">500000</stringProp>
+        <stringProp name="dataSource">Commissions_db</stringProp>
+        <stringProp name="dbUrl">jdbc:sqlserver://${db_ip};DatabaseName=${commissionDbName}</stringProp>
+        <stringProp name="driver">com.microsoft.sqlserver.jdbc.SQLServerDriver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">perftest</stringProp>
+        <stringProp name="poolMax">1500</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">perftest</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="whitelist" enabled="true">
+        <stringProp name="filename">C:\Users\asoliz\performancetesting\LSD\data\load-wave-000064_.csv</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="variableNames">email,accountID</stringProp>
+        <stringProp name="delimiter">,</stringProp>
+        <boolProp name="quotedData">true</boolProp>
+        <boolProp name="recycle">false</boolProp>
+        <boolProp name="stopThread">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">50</stringProp>
+        <longProp name="ThreadGroup.start_time">1469552659000</longProp>
+        <longProp name="ThreadGroup.end_time">1469552659000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetAccount" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[RFO_Accounts].[usp_Account_Get]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[RFO_Accounts].[usp_Account_Get]
+@AccountId = &apos;&apos;,
+@EmailAddress = &apos;${email}&apos;,
+@UserName = &apos;&apos;,
+@SecuredTaxNumber = &apos;&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">AccountID</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO Login" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Security].[usp_ConsultantLogin]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Security].[usp_ConsultantLogin]
+@UserName = &apos;${Username_1}&apos;,
+@Password = &apos;${Password_1}&apos;,
+@Type = &apos;${AccountTypeCode_1}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetKpiInfo" enabled="true">
+          <stringProp name="TestPlan.comments">dependant on accountID</stringProp>
+        </GenericController>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[${commissionDbName}].[pulse].[RPTKPIinfo]" enabled="true">
+            <stringProp name="dataSource">Commissions_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [${commissionDbName}].[pulse].[RPTKPIinfo]
+@PERIODID_IN = ${__time(YYYYMM)},
+@ACCOUNTID_IN = ${accountID}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">AccountID,AccountNumber,AccountStatusCode,,CountryName,AccountTypeCode,TimeZoneCode,LanguageCode,CurrencyCode,CurrencyName,AccountTypeCode,TimeZoneID,LanguageId,LanguageName,ServerModifiedDate,AccountContactId,AccountContactTypeId,DisplayTaxNumber,SecuredTaxNumber,FirstName,MiddleNAme,LastName,LegalName,NickName,GenderId,Birthday,SponsorId,EnrollerId,EnrollmentDate,SoftTerminationDate,HardTerminationDate,Active,IsTaxExempt,IsBusinessEntity,LastRenewalDate,EmailAddressID,EmailAddressTypeID,EmailProfileName,EmailAddress,EffectiveDate,IsDefault,PhoneID,PhoneTypeID,PhoneProfileName,AreaCode,Number,PhoneNumberRaw,PhoneNumberFormatted,MobilePhoneID,MobilePhoneTypeID,MobilePhoneProfileName,MobileCountryCode,MobileAreaCode,MobileNumber,MobilePhoneNumberRaw,MobilePhoneNumberFormatted,AddressId,AddressProfileName,AddressLine1,AddressLine2,AddressLine3,AddressLine4,AddressLine5,PostalCode,Locale,SubRegion,Region,LastAutoAssignmenDate,CoApplicant,PersonalPhotoUrl,Username,Password,SponsorAccountNumber,SponsorName,EnrollerAccountNumber,EnrollerName,StartEnrollmentTypeCode,StartSourceTypeCode,StartDeviceTypeCode,EndEnrollmentTypeCode,EndDeviceTypeCode,SponsorSearchTypeCode,CRPShipDateCode,EnrolledWithCRPCode,EnrolledWithPulseCode,TermsAndConditionsCode,MainAddressPhoneId,MainAddressPhoneTypeID,MainAddressPhoneProfileName,MainAddressCountryCode,MainAddressAreaCode,MainAddressNumber,MainAddressPhoneNumberRaw,MainAddressPhoneNumberFormatted,MainAddressIsDefault</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetComissionOrderHistoryView" enabled="true"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[${commissionDbName}].[pulse].[rptOrdersView]" enabled="true">
+            <stringProp name="dataSource">Commissions_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [${commissionDbName}].[pulse].[rptOrdersView]
+@SponsorId = ${accountID},
+@PeriodId = ${__time(YYYYMM)}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">,,FirstName,LastName,,AccountTypeName,CountryCode,CurrencyCode,AccountID,SponsorId,EnrollerId,AccountType,OrderID,,ReturnOrderID,ReturnOrderNumber,ReturnOrder,OrderTypeId,OrderStatusID,CommissionDate,CompletionDate,QVDescription,QV,,,AutoshipID,AutoshipTypeID,,</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Count Records</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetAutoshipDetails" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_Autoship_By_AutoshipId_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_Autoship_By_AutoshipId_select]
+@AutoshipId = ${AutoshipID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_AutoshipDetails_Items_shipments_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_AutoshipDetails_Items_shipments_select]
+@AutoshipId = ${AutoshipID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_AutoshipDetails_Items_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_AutoshipDetails_Items_select]
+@AutoshipId = ${AutoshipID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_AutoshipDetails_Items_payments_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_AutoshipDetails_Items_payments_select]
+@AutoshipId = ${AutoshipID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_AutoshipDetails_ShippingAddress_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_AutoshipDetails_ShippingAddress_select]
+@AutoshipId = ${AutoshipID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_AutoshipDetails_PaymentAddress_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_AutoshipDetails_PaymentAddress_select]
+@AutoshipId = ${AutoshipID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetOrderDetails" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_Order_By_OrderID_select] " enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_Order_By_OrderID_select]
+@OrderID = ${OrderID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_OrdersDetails_Items_select] " enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_OrdersDetails_Items_select]
+@OrderID = ${OrderID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_OrdersDetails_Items_payments_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_OrdersDetails_Items_payments_select]
+@OrderID = ${OrderID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_OrdersDetails_ShippingAddress_select] " enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_OrdersDetails_ShippingAddress_select]
+@OrderID = ${OrderID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_OrdersDetails_BillingAddress_select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_OrdersDetails_BillingAddress_select]
+@OrderID = ${OrderID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_OrdersDetails_Orders_Notes]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_OrdersDetails_Orders_Notes]
+@OrderID = ${OrderID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_OrderShipment_Select]" enabled="true">
+            <stringProp name="dataSource">RFOperations_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [RFOperations].[Hybris].[usp_OrderShipment_Select]
+@OrderID = ${OrderID_1}</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetReturnOrderDetails" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_Return_By_ReturnID_select] " enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_ReturnsDetails_Returns_Notes] " enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_ReturnsDetails_BillingAddress_select] " enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_ReturnsDetails_Items_payments_select] " enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_ReturnsDetails_Items_select]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetChildOrdersForReturn" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_Order_SelectReturnOrders]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetOrders" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_order_history]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_order_customer_number]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_order_customer_name]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_order_consultant_number]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_order_consultant_name]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_commission_date]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_order_number]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_account_number]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_user_name]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[Hybris].[usp_orders_select_by_order_id]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetPendingAutoshipItems" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Custom SELECT Statement" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="query">SELECT ab.AccountNumber, ac.FirstName, ac.LastName, a.AutoshipID, ast.Name AS AutoshipType, a.StartDate AS AutoshipEnrollmentDate, p.SKU, p.ShortDescription
+FROM RFOperations.hybris.Autoship a
+INNER JOIN RFOperations.hybris.AutoshipItem at
+ON at.AutoshipId = a.AutoshipID
+INNER JOIN RFOperations.RFO_Accounts.AccountContacts ac
+ON ac.AccountId = a.AccountID
+INNER JOIN RFOperations.RFO_Accounts.AccountBase ab
+ON ab.AccountID = a.AccountID
+INNER JOIN RFOperations.RFO_Reference.AutoShipType ast
+ON ast.AutoShipTypeID = a.AutoshipTypeID
+INNER JOIN RFOperations.Hybris.ProductBase p
+ON p.productID = at.ProductID
+WHERE a.AccountID = ${accountID} AND active = 1</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetQualifyingVolumePSQV" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[pulse].[rptGetQualifyingVolumePSQV]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetLsdKpiInfo" enabled="true"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[${commissionDbName}].[pulse].[rptLSD_KPI_InfoByLevelAndAccountType]" enabled="true">
+            <stringProp name="dataSource">Commissions_db</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">EXEC [${commissionDbName}].[pulse].[rptLSD_KPI_InfoByLevelAndAccountType]
+@SponsorId=${accountID},
+@PeriodId=201607,
+@Level=1,
+@AccountTypeId=1</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO GetAccountSiteSubscriptions" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[RFO_Accounts].[usp_Site_SelectByAccountID]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RFO Logout" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="[security].[usp_security_delete_requestor_token]" enabled="true">
+            <stringProp name="dataSource"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query"></stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">true</boolProp>
+        </DebugSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

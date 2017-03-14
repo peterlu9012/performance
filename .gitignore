@@ -1,0 +1,12 @@
+*.jtl
+target/jmeter/logs
+target/test-classes
+target/maven-status
+target/results
+LSD/reports/*
+target/jmeter/bin/*
+target/jmeter/testFiles/*
+target/*.jar
+target/config.json
+target/jmeter/bin/*.properties
+target/jmeter/testFiles/*.jmx
